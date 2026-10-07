@@ -1,6 +1,7 @@
 package com.ninjabank.account.controller;
 
 import com.ninjabank.account.dto.BalanceRequest;
+import com.ninjabank.account.dto.BalanceTransferRequest;
 import com.ninjabank.account.entity.Account;
 import com.ninjabank.account.service.AccountService;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +31,15 @@ public class AccountController {
             @PathVariable String accountNumber,
             @RequestBody BalanceRequest request) {
         return accountService.withdraw(accountNumber, request.getAmount());
+    }
+
+    @PostMapping("/transfer")
+    public Account transfer(
+            @RequestBody BalanceTransferRequest request) {
+        return accountService.transfer(
+                request.getFromAccountNumber(),
+                request.getToAccountNumber(),
+                request.getAmount()
+        );
     }
 }

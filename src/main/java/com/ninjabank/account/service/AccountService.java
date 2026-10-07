@@ -11,4 +11,6 @@ public interface AccountService {
     Account deposit(String accountNumber, BigDecimal amount);
 
     Account withdraw(String accountNumber, BigDecimal amount);
+
+    Account transfer(String fromAccountNumber, String toAccountNumber, BigDecimal amount);
 }
