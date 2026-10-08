@@ -15,3 +15,4 @@ public class AccountResponse {
     private String accountType;
     private String accountStatus;
 }
+
